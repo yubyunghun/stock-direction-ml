@@ -1,0 +1,3 @@
+model,AUC_test,Brier_test
+logreg,0.4741,0.2535
+xgb,0.4546,0.2954
