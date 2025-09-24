@@ -1,5 +1,5 @@
 # Model Card — Stock Direction (LogReg)
-**Date:** 2025-09-23
+**Date:** 2025-09-24
 **Ticker:** UNK | **Period:** 2015-02-20 → 2023-12-28
 **Labeling:** tau=None, dead_zone=None
 **Features (8):** macd, macd_signal, ret1, ret10, ret5, rsi14, vol10, volz
