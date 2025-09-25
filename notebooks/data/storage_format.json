@@ -1,9 +1,1 @@
-[
-  {
-    "format": "csv"
-  },
-  {
-    "path": "data\\df_nb06_market.csv",
-    "format": "csv"
-  }
-]
+{"format": "csv"}
