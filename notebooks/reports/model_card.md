@@ -1,24 +1,25 @@
 # Model Card — Stock Direction (LogReg)
-**Date:** 2025-09-24
-**Ticker:** UNK | **Period:** 2015-02-20 → 2023-12-28
-**Labeling:** tau=None, dead_zone=None
+**Date:** 2025-10-09  
+**Ticker:** AAPL | **Period:** 2015-02-06 → 2025-10-09  
+**Labeling:** from NB5 settings  
 **Features (8):** macd, macd_signal, ret1, ret10, ret5, rsi14, vol10, volz
 
 ## Metrics (Val/Test summary)
 | model | split | AUC | PR_AUC | Brier | LogLoss | PosRate |
 | --- | --- | --- | --- | --- | --- | --- |
-| LR | val | 0.4920 | 0.5179 | 0.2630 | 0.7219 | 0.5325 |
-| LR | test | 0.4546 | 0.4910 | 0.2746 | 0.7459 | 0.5252 |
-| XGB | val | 0.5200 | 0.5508 | 0.2660 | 0.7310 | 0.5325 |
-| XGB | test | 0.5226 | 0.5374 | 0.2650 | 0.7286 | 0.5252 |
+| LR | val | 0.4729 | 0.4983 | 0.2537 | 0.7007 | 0.5140 |
+| LR | test | 0.4537 | 0.5128 | 0.2530 | 0.6992 | 0.5475 |
+| XGB | val | 0.4958 | 0.5134 | 0.2652 | 0.7266 | 0.5140 |
+| XGB | test | 0.4548 | 0.5122 | 0.2759 | 0.7501 | 0.5475 |
 
-**Val-chosen threshold (max-F1):** 0.290
+**Val-chosen threshold:** 0.400
 
 ## Stability (test by year)
 | year | AUC | Brier | PosRate |
 | --- | --- | --- | --- |
-| 2022 | 0.4456 | 0.2839 | 0.4706 |
-| 2023 | 0.4246 | 0.2670 | 0.5696 |
+| 2023 | 0.4465 | 0.2506 | 0.5761 |
+| 2024 | 0.4866 | 0.2493 | 0.5635 |
+| 2025 | 0.4149 | 0.2590 | 0.5130 |
 
 ## Artifacts
 - `artifacts/scaler.joblib`, `artifacts/lr.joblib`, `artifacts/threshold.json`, `artifacts/feature_list.json`
