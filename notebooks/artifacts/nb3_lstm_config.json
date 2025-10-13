@@ -1,0 +1,16 @@
+{
+  "framework": "pytorch",
+  "seed": 42,
+  "lookback": 60,
+  "horizon": 1,
+  "stride": 1,
+  "batch_size": 256,
+  "epochs": 100,
+  "learning_rate": 0.001,
+  "train_frac": 0.7,
+  "val_frac": 0.15,
+  "feature_hash": "66c3a98e32bf96b75acd7ef1c451fded",
+  "n_features": 15,
+  "best_val_auc": 0.5577708219923789,
+  "generated_at": "2025-10-13T13:26:41"
+}

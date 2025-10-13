@@ -1,0 +1,5 @@
+{
+  "tau": 0.5,
+  "dead_zone": false,
+  "source": "nb02_repair"
+}

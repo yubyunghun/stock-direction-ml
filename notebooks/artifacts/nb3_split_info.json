@@ -1,0 +1,22 @@
+{
+  "SEED": 42,
+  "LOOKBACK": 60,
+  "HORIZON": 1,
+  "STRIDE": 1,
+  "TRAIN_FRAC": 0.7,
+  "VAL_FRAC": 0.15,
+  "train_end_idx": 1880,
+  "val_end_idx": 2283,
+  "train_date_range": [
+    "2015-02-06",
+    "2022-07-26"
+  ],
+  "val_date_range": [
+    "2022-07-27",
+    "2024-03-04"
+  ],
+  "test_date_range": [
+    "2024-03-05",
+    "2025-10-10"
+  ]
+}
