@@ -1,5 +1,5 @@
 {
-  "threshold": 0.446766096701728,
-  "policy": "YoudenJ",
-  "computed_on": "val"
+  "LR": {
+    "tau": 0.59
+  }
 }
