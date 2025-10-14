@@ -1,7 +1,7 @@
 # Model Card — Stock Direction (LogReg)
-**Date:** 2025-10-13  
+**Date:** 2025-10-14  
 **Ticker:** AAPL | **Period:** 2015-02-06 → 2025-10-10  
-**Labeling:** tau=0.500, dead_zone=False  
+**Labeling:** tau=0.5, dead_zone=False  
 **Features (16):** close, high, low, macd, macd_signal, mkt_ret1, mkt_ret5, open, ret1, ret10, ret5, rsi14 ...
 
 ## Metrics (Val/Test summary)
@@ -12,14 +12,19 @@
 | XGB | val | 0.5113 | 0.5285 | 0.2771 | 0.7582 | 0.5140 |
 | XGB | test | 0.4745 | 0.5228 | 0.2871 | 0.7758 | 0.5483 |
 
-**Val-chosen threshold:** 0.050
+**Chosen threshold (val-based):** 0.447
 
-## Stability (test by year)
+## Stability (Test by year)
 | year | AUC | Brier | PosRate |
 | --- | --- | --- | --- |
 | 2023 | 0.4877 | 0.2520 | 0.5761 |
 | 2024 | 0.5309 | 0.2482 | 0.5635 |
 | 2025 | 0.4106 | 0.2643 | 0.5155 |
+
+## Backtest (Test set, long-only @ threshold)
+| CAGR | Vol | Sharpe | MaxDD | HitRate | Trades | TurnoverYr |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0.0990 | 0.2300 | 0.4307 | -0.3269 | 0.4796 | 101.0000 | 47.3086 |
 
 ## Artifacts
 - `artifacts/scaler.joblib`, `artifacts/lr.joblib`, `artifacts/threshold.json`, `artifacts/feature_list.json`
