@@ -1,0 +1,35 @@
+{
+  "as_of": "2025-10-10",
+  "window_days": 60,
+  "kpis": {
+    "CAGR": -0.1805,
+    "Sharpe": -2.8498,
+    "Vol": 0.0633,
+    "Hit": 0.0167
+  },
+  "classification": {
+    "AUC": 0.308,
+    "Brier": 0.2703,
+    "realized_days": 120
+  },
+  "coverage": 0.18333333333333332,
+  "turnover": 0.1,
+  "trades": 6,
+  "hit_cond": 0.07142857142857142,
+  "drift": {
+    "min_p_value": null,
+    "worst_feature": null,
+    "rows": 0
+  },
+  "paper": {
+    "tau": 0.5900000000000001,
+    "fee_bps": 5.0,
+    "slippage_bps": 0.0,
+    "as_of": "2025-10-10",
+    "rows": 2686,
+    "equity": 1.2177816991441166,
+    "turnover": 0.0873015873015873
+  },
+  "issues": [],
+  "status": "OK"
+}
