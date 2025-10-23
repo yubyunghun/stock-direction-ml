@@ -1,33 +1,19 @@
 {
-  "as_of_utc": "2025-10-23T01:13:44.989753+00:00",
+  "as_of": "2025-10-10",
+  "lookback_days": 60,
   "status": "ALERT",
   "issues": [
-    "Sharpe60<-0.5",
-    "AUC60<0.52",
-    "Brier60>0.27"
+    "Sharpe60<-0.5"
   ],
-  "window_days": 60,
-  "kpis": {
+  "kpis60": {
     "CAGR": -0.1804741756863275,
-    "Sharpe": -2.8497616218317083,
     "Vol": 0.06332956914842801,
-    "Hit": 0.016666666666666666,
+    "Sharpe": -2.8497616218317083,
     "MaxDD": -0.05375623145791375
   },
-  "classification": {
-    "AUC": 0.29888888888888887,
-    "Brier": 0.2702371974001323,
-    "realized_days": 60
-  },
-  "files": {
-    "signals_csv": "data/signals.csv",
-    "drift_csv": "data/feature_drift_live.csv"
-  },
-  "action_suggestion": {
-    "timestamp_utc": "2025-10-23T01:13:45.589297+00:00",
-    "action": "pause",
-    "reason": "monitor_status",
-    "new_tau": null,
-    "coverage60_dyn": 0.0
+  "cls60": {
+    "AUC": 1.0,
+    "Brier": 0.25698282615295426,
+    "days": 60
   }
 }
