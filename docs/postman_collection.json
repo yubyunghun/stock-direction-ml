@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "Direction Classifier API",
+    "_postman_id": "auto-generated",
+    "description": "Local collection for app.api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://10.25.41.66:8000/health",
+          "protocol": "http",
+          "host": [
+            "10.25.41.66"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Predict (equity, repo)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://10.25.41.66:8000/predict",
+          "protocol": "http",
+          "host": [
+            "10.25.41.66"
+          ],
+          "port": "8000",
+          "path": [
+            "predict"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"asset_class\": \"equity\",\n  \"source\": \"repo\",\n  \"ticker\": \"AAPL\",\n  \"fee_bps\": 5\n}"
+        }
+      }
+    },
+    {
+      "name": "Predict (crypto, fetch BTC-USD)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://10.25.41.66:8000/predict",
+          "protocol": "http",
+          "host": [
+            "10.25.41.66"
+          ],
+          "port": "8000",
+          "path": [
+            "predict"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"asset_class\": \"crypto\",\n  \"source\": \"fetch\",\n  \"ticker\": \"BTC-USD\",\n  \"fee_bps\": 5\n}"
+        }
+      }
+    }
+  ]
+}
