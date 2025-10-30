@@ -1,0 +1,7 @@
+{
+  "target_precision": 0.9,
+  "invert_proba": true,
+  "global_tau": 0.45083932853717024,
+  "asset_class": "equity",
+  "notes": "Selective mode: high precision, lower coverage."
+}

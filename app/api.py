@@ -142,3 +142,65 @@ def predict(inp: PredictIn):
         return {"preds": preds, "meta": meta}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+# --- selective override wrapper (auto-added by NB25) ---
+
+try:
+    _sel_wrapper_applied  # guard
+except NameError:
+    _orig_predict_core = predict_core
+
+    def predict_core(asset_class="equity", source="repo", ticker=None,
+                     start=None, end=None, fee_bps=5, tau=None):
+        pred, meta = _orig_predict_core(asset_class=asset_class, source=source, ticker=ticker,
+                                        start=start, end=end, fee_bps=fee_bps, tau=tau)
+
+        import json, numpy as _np
+        import pandas as _pd
+        from pathlib import Path as _P
+
+        # Locate selective config
+        try:
+            base = ROOT  # provided by app.config
+        except NameError:
+            # fall back: api.py is under app/  ⇒ parent.parent is repo root
+            base = _P(__file__).resolve().parent.parent
+        cfgp = (base / "artifacts" / "selective_config.json")
+        sel = {}
+        if cfgp.exists():
+            try:
+                sel = json.loads(cfgp.read_text(encoding="utf-8"))
+            except Exception:
+                sel = {}
+
+        invert = bool(sel.get("invert_proba", False))
+        tau_default = float(sel.get("global_tau", meta.get("tau_used", 0.59)))
+        tau_used = float(tau) if tau is not None else tau_default
+
+        # Normalize return to DataFrame for post-processing
+        if isinstance(pred, list):
+            dfp = _pd.DataFrame(pred)
+            ret_type = "list"
+        else:
+            dfp = pred.copy()
+            ret_type = "df"
+
+        # Apply inversion and re-threshold if proba present
+        if "proba" in dfp.columns:
+            proba = _pd.to_numeric(dfp["proba"], errors="coerce").to_numpy()
+            proba = _np.clip(proba, 1e-6, 1-1e-6)
+            if invert:
+                proba = 1.0 - proba
+                dfp["proba"] = proba
+            dfp["signal"] = (proba >= tau_used).astype(int)
+
+        dfp["tau_used"] = float(tau_used)
+        meta["tau_used"] = tau_used
+
+        if ret_type == "list":
+            return dfp.to_dict(orient="records"), meta
+        else:
+            return dfp, meta
+
+    _sel_wrapper_applied = True

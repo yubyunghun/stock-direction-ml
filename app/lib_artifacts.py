@@ -12,7 +12,18 @@ def load_artifacts(asset_class="equity"):
     scaler = joblib.load(art/"scaler.joblib")
     model  = joblib.load(art/"lr.joblib")
 
-    tau_art = DEFAULT_TAU
+    
+    # NB26: prefer calibrated model if present
+    try:
+        import os, joblib, json
+        from pathlib import Path as _P
+        base = _P(art)
+        cand = base/"lr_calibrated.joblib"
+        if cand.exists():
+            model = joblib.load(cand)
+    except Exception:
+        pass
+tau_art = DEFAULT_TAU
     tfile = art / "threshold.json"
     if tfile.exists():
         try:
