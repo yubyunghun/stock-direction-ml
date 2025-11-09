@@ -1,0 +1,21 @@
+tickers:
+- symbol: AAPL
+  asset_class: equity
+  fee_bps: 5
+  tau: null
+  min_coverage: 0.05
+- symbol: MSFT
+  asset_class: equity
+  fee_bps: 5
+  tau: null
+  min_coverage: 0.05
+- symbol: BTC-USD
+  asset_class: crypto
+  fee_bps: 8
+  tau: null
+  min_coverage: 0.05
+- symbol: ETH-USD
+  asset_class: crypto
+  fee_bps: 8
+  tau: null
+  min_coverage: 0.05
